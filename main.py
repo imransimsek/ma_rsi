@@ -36,7 +36,7 @@ def main():
                 current_price = df['close'].iloc[-1]
                 
                 if last_signal == 1 and not in_position:
-                    print(f"ALIM SİNYALİ - {CONFIG['symbol']} - Fiyat: {current_price}")
+                    print(f"BUY SIGNAL - {CONFIG['symbol']} - Price: {current_price}")
                     
                 
                     order = trader.create_market_buy_order(
@@ -59,9 +59,9 @@ def main():
                         )
                 
                 elif last_signal == -1 and in_position:
-                    print(f"SATIŞ SİNYALİ - {CONFIG['symbol']} - Fiyat: {current_price}")
+                    print(f"SELL SIGNAL - {CONFIG['symbol']} - Price: {current_price}")
                     
-                    # Satış emri ver
+               
                     order = trader.create_market_sell_order(
                         CONFIG['symbol'],
                         CONFIG['quantity']
@@ -74,7 +74,7 @@ def main():
             time.sleep(60)  
             
         except Exception as e:
-            print(f"Hata oluştu: {e}")
+            print(f"Error occurred: {e}")
             time.sleep(60)
 
 if __name__ == "__main__":
