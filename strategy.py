@@ -6,7 +6,7 @@ class TradingStrategy:
     
     def generate_signals(self, df):
         """
-        Alım-satım sinyalleri üretir
+        Make buy and sell signals based on the strategy
         """
         signals = pd.DataFrame(index=df.index)
         signals['position'] = 0
